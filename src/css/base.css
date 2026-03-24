@@ -1,32 +1,142 @@
-:root {
-  /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+* {
+  box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-width: 100vw;
-  min-height: 100vh;
   margin: 0;
+  font-family: system-ui;
 }
 
-main {
-  flex-grow: 1;
+/* ===== FORM ===== */
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
-main:has(.back-link) {
+
+.form {
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  width: 272px;
+  height: 40px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  padding: 0 16px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:hover {
+  border-color: #000;
+}
+
+.search-input:focus {
+  border-color: #4e75ff;
+}
+
+.search-button {
+  height: 40px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #6c8cff;
+}
+
+/* ===== GALLERY ===== */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.gallery-link {
+  width: calc((100% - 48px) / 3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+}
+
+.photo-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+  font-size: 12px;
+}
+
+/* ===== BUTTON & LOADER ===== */
+
+.load-more-btn {
+  display: none;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #4e75ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.load-more-btn.visible {
+  display: block;
+}
+
+.loader {
+  display: none;
   text-align: center;
+}
+
+.loader.visible {
+  display: block;
+}
+.info {
+  display: flex;           /* горизонтальное расположение блоков */
+  justify-content: space-around; /* равномерные отступы между ними */
+  padding: 12px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+
+.info .stat {
+  display: flex;
+  flex-direction: column;  /* текст сверху, цифра снизу */
+  align-items: center;
+  font-size: 14px;
+}
+
+.info .stat span:first-child {
+  font-weight: bold;       /* название */
+  margin-bottom: 4px;      /* небольшой отступ */
+}
+
+.info .stat span:last-child {
+  font-size: 16px;         /* цифра чуть крупнее */
 }
